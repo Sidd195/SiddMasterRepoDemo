@@ -1,0 +1,81 @@
+{
+	"name": "DelimitedText1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Order_history.csv",
+				"folderPath": "Generalfiles",
+				"container": "source"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Order ID",
+				"type": "String"
+			},
+			{
+				"name": "Market",
+				"type": "String"
+			},
+			{
+				"name": "Pair",
+				"type": "String"
+			},
+			{
+				"name": "Total Quantity",
+				"type": "String"
+			},
+			{
+				"name": "Remaining Quantity",
+				"type": "String"
+			},
+			{
+				"name": "Price Per Unit",
+				"type": "String"
+			},
+			{
+				"name": "Avg Price",
+				"type": "String"
+			},
+			{
+				"name": "Fee Amount",
+				"type": "String"
+			},
+			{
+				"name": "Side",
+				"type": "String"
+			},
+			{
+				"name": "Order Type",
+				"type": "String"
+			},
+			{
+				"name": "Status",
+				"type": "String"
+			},
+			{
+				"name": "Exchnage code",
+				"type": "String"
+			},
+			{
+				"name": "Created At",
+				"type": "String"
+			},
+			{
+				"name": "Updated At",
+				"type": "String"
+			}
+		]
+	}
+}
