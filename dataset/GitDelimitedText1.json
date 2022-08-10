@@ -1,18 +1,25 @@
 {
-	"name": "DelimitedText1",
+	"name": "GitDelimitedText1",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureBlobStorage1",
+			"referenceName": "DestinationcsvLinkedservice",
 			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"SourceFolder": {
+				"type": "string"
+			}
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobStorageLocation",
-				"fileName": "Demo_output.csv",
-				"folderPath": "Generalfiles",
-				"container": "source"
+				"type": "AzureBlobFSLocation",
+				"folderPath": {
+					"value": "@dataset().SourceFolder",
+					"type": "Expression"
+				},
+				"fileSystem": "source"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
@@ -25,31 +32,7 @@
 				"type": "String"
 			},
 			{
-				"name": "Market",
-				"type": "String"
-			},
-			{
-				"name": "Pair",
-				"type": "String"
-			},
-			{
-				"name": "Total Quantity",
-				"type": "String"
-			},
-			{
-				"name": "Remaining Quantity",
-				"type": "String"
-			},
-			{
-				"name": "Price Per Unit",
-				"type": "String"
-			},
-			{
-				"name": "Avg Price",
-				"type": "String"
-			},
-			{
-				"name": "Fee Amount",
+				"name": "Currency",
 				"type": "String"
 			},
 			{
@@ -57,15 +40,23 @@
 				"type": "String"
 			},
 			{
-				"name": "Order Type",
+				"name": "Total Quantity",
+				"type": "String"
+			},
+			{
+				"name": "Price Per Unit",
+				"type": "String"
+			},
+			{
+				"name": "Total Amount",
+				"type": "String"
+			},
+			{
+				"name": "TDS Amount",
 				"type": "String"
 			},
 			{
 				"name": "Status",
-				"type": "String"
-			},
-			{
-				"name": "Exchnage code",
 				"type": "String"
 			},
 			{

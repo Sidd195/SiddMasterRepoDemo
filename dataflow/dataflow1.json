@@ -1,0 +1,52 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedTextSourceCSV",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText1",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [],
+			"scriptLines": [
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source1",
+				"source1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          {Order ID} as string,",
+				"          Market as string,",
+				"          Pair as string,",
+				"          {Total Quantity} as string,",
+				"          {Remaining Quantity} as string,",
+				"          {Price Per Unit} as string,",
+				"          {Avg Price} as string,",
+				"          {Fee Amount} as string,",
+				"          Side as string,",
+				"          {Order Type} as string,",
+				"          Status as string,",
+				"          {Exchnage code} as string,",
+				"          {Created At} as string,",
+				"          {Updated At} as string",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
+			]
+		}
+	}
+}
